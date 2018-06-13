@@ -7,15 +7,12 @@ f[k_] := Module[{},
      t - (k*t)/Sqrt[4 + t^2]}, {t, -11, 11}, PlotStyle -> Green], 
    Graphics[{Red, Line[#]} & /@ l, Axes -> True]]]
 f[8]
-lim = -(t /. 
-    Last@NMinimize[{t^2/4 + (2*8)/Sqrt[4 + t^2], -3 <= t <= 3}, t, 
-      WorkingPrecision -> 30])
+t1 = 2 Sqrt[-1 + 2 2^(1/3)];
 c[t_] := y + t/2 (x - t^2/4) - t;
 sol = {x, y} /. Solve[c[t] == 0 && D[c[t], t] == 0, {x, y}] // First
 ParametricPlot[{sol, {t^2/4 + (2*8)/Sqrt[4 + t^2], 
    t - (8*t)/Sqrt[4 + t^2]}}, {t, -lim, lim}, 
  PlotRange -> {{0, 10}, {-5, 5}}, PlotStyle -> Red]
-2 NIntegrate[
-  t^3/4 D[1/4 (8 + 3 t^2), t] + (t - (8*t)/Sqrt[4 + t^2]) D[
-     t^2/4 + (2*8)/Sqrt[4 + t^2], t], {t, 0, lim}, 
-  WorkingPrecision -> 30]
+area = 2 Integrate[
+    t^3/4 D[1/4 (8 + 3 t^2), t] + (t - (8*t)/Sqrt[4 + t^2]) D[
+       t^2/4 + (2*8)/Sqrt[4 + t^2], t], {t, 0, t1}] // FullSimplify
