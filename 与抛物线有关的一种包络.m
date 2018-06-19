@@ -10,9 +10,10 @@ f[k_] := Module[{},
 f[8]
 t1 = 2 Sqrt[-1 + 2 2^(1/3)];
 c[t_] := y + t/2 (x - t^2/4) - t;
-sol = {x, y} /. Solve[c[t] == 0 && D[c[t], t] == 0, {x, y}] // First(*求左侧包络线方程*)
-ParametricPlot[{sol, {t^2/4 + (2*8)/Sqrt[4 + t^2], 
-   t - (8*t)/Sqrt[4 + t^2]}}, {t, -lim, lim}, 
+sol = {x, y} /. Solve[c[t] == 0 && D[c[t], t] == 0, {x, y}] // 
+  First(*求左侧包络线方程*)
+ParametricPlot[{sol, {t^2/4 + (2*8)/Sqrt[4 + t^2],
+    t - (8*t)/Sqrt[4 + t^2]}}, {t, -t1, t1}, 
  PlotRange -> {{0, 10}, {-5, 5}}, PlotStyle -> Red]
 area = 2 Integrate[
     t^3/4 D[1/4 (8 + 3 t^2), t] + (t - (8*t)/Sqrt[4 + t^2]) D[
