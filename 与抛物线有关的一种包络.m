@@ -1,7 +1,7 @@
 f[k_] := Module[{}, 
   l = Table[{{y^2/4, y}, {y^2/4 + (2*k)/Sqrt[4 + y^2], 
       y - (y*k)/Sqrt[4 + y^2]}}, {y, -11, 11, 0.5}];
-  Show[ContourPlot[Evaluate@{y^2 == 4 x}, {x, -2, 30}, {y, -18, 18}, 
+  Show[ContourPlot[Evaluate@{y^2 == 4 x}, {x, -2, 30}, {y, -16, 16}, 
     ContourStyle -> Blue], 
    ParametricPlot[{t^2/4 + (2 k)/Sqrt[4 + t^2], 
      t - (k*t)/Sqrt[4 + t^2]}, {t, -11, 11}, PlotStyle -> Green], 
