@@ -1,0 +1,3 @@
+SphericalPlot3D[Log[x] + Sin[y], {x, 0, 2 \[Pi]}, {y, 0, 2 \[Pi]}, 
+ Boxed -> False, PlotStyle -> Yellow, Mesh -> None, PlotPoints -> 30, 
+ Axes -> False]
